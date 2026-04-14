@@ -1,6 +1,7 @@
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.Random;
 
 public class Imagen {
     public static void main(String[] args) {
@@ -18,21 +19,21 @@ public class Imagen {
 
         int mascara = 0xFF;
 
+        Random random = new Random();
+
         int binario = (7 >> 2);
 
         try {
-            BufferedImage bufer = ImageIO.read(file);
-            ancho = bufer.getWidth();
-            alto = bufer.getHeight();
+            ancho = 900;
+            alto = 500;
 
             BufferedImage bufer2 = new BufferedImage(ancho, alto, BufferedImage.TYPE_INT_RGB);
 
             for (int y = 0; y < alto; y++) {
                 for (int x = 0; x < ancho; x++) {
-                    pixel = bufer.getRGB(x, y);
-                    r = (pixel >> 16) & mascara;
-                    g = (pixel >> 8) & mascara;
-                    b = pixel & mascara;
+                    r = random.nextInt(256);
+                    g = random.nextInt(256);
+                    b = 250;
 
                     //System.out.println("(" + r + ", " + g + ", " + b + ")");
 
